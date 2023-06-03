@@ -575,7 +575,7 @@ public class Gui3_2 extends JFrame {
 				listChoice.add(textChoice_5.getText());
 			}
 			if(listChoice.size()>=2) {
-				Question question= new Question(textField.getText(), textPane.getText(), listChoice, textField_2.getText().toUpperCase());
+				Question question= new Question(textField.getText(), textPane.getText(), listChoice,"ANSWER: "+ textField_2.getText().toUpperCase());
 				ArrayList<QuestionBank> listQB= new ArrayList<>();
 				
 				try {
