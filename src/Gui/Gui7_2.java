@@ -1,10 +1,12 @@
 package Gui;
-
+import Entity.Question;
+import Entity.Quiz;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Window;
@@ -14,6 +16,9 @@ import javax.swing.JSplitPane;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Gui7_2 extends JFrame {
@@ -106,6 +111,18 @@ public class Gui7_2 extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(31, 38, 466, 2);
 		contentPane.add(separator_1);
+		
+		JButton btnNewButton_1 = new JButton("EXPORT");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				do_btnExport_actionPerformed(e);
+				}
+			});
+		btnNewButton_1.setBackground(new Color(0, 128, 0));
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_1.setBounds(365, 190, 103, 39);
+		contentPane.add(btnNewButton_1);
 	}
 	protected void do_btnCancel_actionPerformed(ActionEvent e) {
 		this.setVisible(false);
@@ -119,5 +136,11 @@ public class Gui7_2 extends JFrame {
 		gui7_3.setVisible(true);
 		this.setVisible(false);
 //		gui7_2.setVisible(false);
+	}
+	protected void do_btnExport_actionPerformed(ActionEvent e)
+	{
+		Export export = new Export(name);
+		export.expordPdf();
+		this.setVisible(false);
 	}
 }
